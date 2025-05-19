@@ -1,0 +1,13 @@
+| Feature / Map Type           | `HashMap`              | `TreeMap`                     | `LinkedHashMap`                     | `ConcurrentHashMap`               | `Hashtable`                            |
+| ---------------------------- | ---------------------- | ----------------------------- | ----------------------------------- | --------------------------------- | -------------------------------------- |
+| **Ordering**                 | ❌ No order             | ✅ Sorted by key               | ✅ Insertion / Access order          | ❌ No order                        | ❌ No order                             |
+| **Null Keys**                | ✅ One null key         | ❌ Not allowed                 | ✅ One null key                      | ❌ Not allowed                     | ❌ Not allowed                          |
+| **Null Values**              | ✅ Allowed              | ✅ Allowed                     | ✅ Allowed                           | ❌ Not allowed                     | ❌ Not allowed                          |
+| **Thread-Safe**              | ❌ No                   | ❌ No                          | ❌ No                                | ✅ Yes (non-blocking)              | ✅ Yes (synchronized methods)           |
+| **Performance (Ops)**        | O(1) get/put           | O(log n) get/put              | O(1) get/put                        | O(1) (optimized for concurrency)  | O(1) (but slower due to full locking)  |
+| **Underlying Structure**     | Hash table             | Red-Black Tree                | Hash table + Doubly-linked list     | Hash table with segmented locking | Hash table (synchronized)              |
+| **Allows Custom Comparator** | ❌                      | ✅ Yes                         | ❌                                   | ❌                                 | ❌                                      |
+| **Iteration Order**          | Unpredictable          | Sorted by key                 | Insertion or access order           | Unpredictable                     | Unpredictable                          |
+| **Access Order Option**      | ❌ No                   | ❌ No                          | ✅ Yes (LRU-style)                   | ❌ No                              | ❌ No                                   |
+| **Best For**                 | Fast, unordered access | Sorted maps / range queries   | Ordered iteration / caches          | High-performance concurrent maps  | Legacy code with basic synchronization |
+| **Popular Use Cases**        | General-purpose map    | Navigable data, range lookups | LRU cache, logging, ordered display | Shared concurrent data structures | Legacy systems needing thread safety   |
