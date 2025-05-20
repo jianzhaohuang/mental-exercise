@@ -14,6 +14,8 @@ public class LinkedHashMapExample {
     }
 
     private static void demonstrateLRUCache() {
+        // note that LinkedHashMap extends HashMap, and resize is to optimize performance 
+        // rather than eviction and resize applies to both HashMap and LinkedHashMap.
         Map<String, Integer> lruCache = new LinkedHashMap<>(
             3,      // initial capacity: starting size of the hash table
             0.75f,  // load factor: when size > (capacity * load factor), the map will resize
